@@ -1,0 +1,22 @@
+.header {
+  text-align: center;
+  color: blue;
+  background-color: rgb(237, 54, 54);
+  padding: 5px;
+  font-size: larger;
+}
+table {
+  table-layout: auto;
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 1000px;
+  margin: 40px auto;
+}
+.caption {
+  margin: 20px;
+  font-size: 30px;
+}
+.col-flight# {
+  background-color: blue;
+  
+}

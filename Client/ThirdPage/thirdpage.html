@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favorite Flights</title>
+    <link rel="stylesheet" type="text/css" href="thirdpage.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1>Flight Booking</h1>
+    </header>
+    <table border="3" cellpadding="15" cellspacing="0">
+      <caption class="caption">
+        Favorite Flights
+      </caption>
+      <thead>
+        <colgroup>
+          <col width="10%" />
+          <col width="20%" />
+          <col width="20%" />
+          <col width="20%" />
+          <col width="15%" />
+          <col width="10%" />
+          <col width="10%" />
+          <col width="20%" />
+        </colgroup>
+        <tr>
+          <th align="left" class="col-flight#">Flight #</th>
+          <th align="center" class="col-airline">Airline</th>
+          <th align="center" class="col-departure">Departure</th>
+          <th align="center" class="col-arrival">Arrival</th>
+          <th align="center" class="col-date">Date</th>
+          <th align="center" class="col-time">Time</th>
+          <th align="center" class="col-price">Price</th>
+          <th align="center" class="col-book">Book</th>
+        </tr>
+      </thead>
+      <tbody id="favorite-flights"></tbody>
+    </table>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script src="thirdpage.js"></script>
+  </body>
+</html>
+

@@ -20,8 +20,8 @@ public class FlightController {
         return flightRepo.findAll();
     }
 
-    @PostMapping("/flight/book/{airline}/{departure}/{arrival}/{date}/{time}/{price}")
+    /*@PostMapping("/flight/book/{airline}/{departure}/{arrival}/{date}/{time}/{price}")
     public ResponseEntity addFlight() {
 
-    }
+    }*/
 }
