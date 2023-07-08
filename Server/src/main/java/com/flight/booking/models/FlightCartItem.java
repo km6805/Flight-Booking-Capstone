@@ -1,8 +1,6 @@
 package com.flight.booking.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,6 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class FlightCartItem {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @ManyToOne
     private Flight flight;

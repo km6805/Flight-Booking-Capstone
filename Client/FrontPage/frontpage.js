@@ -21,6 +21,16 @@ const displayList = () => {
     });
 }
 
+const addToFavorites =(e,sku) => {
+    let body = {
+        sku:sku,quantity:1
+    }
+    const id = localStorage.getItem('flightBookId');
+    axios.post(`${baseURL}/api/flight-book/${id}`, body)
+    .then(({ data }) =>{})
+}
+
+
 const makeFlight = (flight) => {
     return `
         <tr>
@@ -31,6 +41,7 @@ const makeFlight = (flight) => {
             <td align="center">${flight.date}</td>
             <td align="center">${flight.time}</td>
             <td align="center">$${flight.price}</td>
+            <td align="center"><button onclick="addToFavorites(this, ${flight.sku})">Add to Favorites</button></td>
         </tr>`
 }
 

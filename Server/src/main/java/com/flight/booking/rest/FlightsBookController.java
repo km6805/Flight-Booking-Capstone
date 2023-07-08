@@ -22,7 +22,6 @@ public class FlightsBookController {
     @PostMapping("/flight-book/{id}")
     public ResponseEntity<FlightsBookResponse> addToBook(@PathVariable String id,@RequestBody FlightsBookItemRequest flightsBookItemRequest) {
         FlightsBookResponse flightsBookResponse = flightsBookService.addFlightToBook(id,flightsBookItemRequest);
-        System.out.println(flightsBookResponse.getBookRows());
         return new ResponseEntity<>(flightsBookResponse,HttpStatus.OK);
     }
 }

@@ -51,29 +51,19 @@ public class FlightsBookService {
         return optional.get();
     }
 
-    public FlightsBookResponse addFlightToBook(String id, FlightsBookItemRequest flightsBookItemRequest) {
+    public FlightsBookResponse addFlightToBook(String id, FlightsBookItemRequest flightCartItemRequest) {
         FlightsBook flightsBook = getFlightsBookFromDatabase(id);
-        Optional<FlightCartItem> optionalFlightCartItem = getExistingFlight(flightsBook,flightsBookItemRequest);
-        /*if (optionalFlightCartItem.isPresent()) {
-            FlightCartItem flightCartItem = optionalFlightCartItem.get();
-            flightCartItemRepo.delete(flightCartItem);
-        }else {
-            Flight flight = flightRepo.findFlightBySku(flightsBookItemRequest.getSku());
-            FlightCartItem flightCartItem = new FlightCartItem(null,flight);
-            flightCartItem = flightCartItemRepo.save(flightCartItem);
-            flightsBook.getFlightCartItems().add(flightCartItem);
-            flightsBookRepo.save(flightsBook);
+        Optional<FlightCartItem> optionalFlightCartItem = getExistingFlight(flightsBook,flightCartItemRequest);
+        if(optionalFlightCartItem.isPresent()){
+            return generateFlightBook(flightsBook);
         }
-
-         */
-        Flight flight = flightRepo.findFlightBySku(flightsBookItemRequest.getSku());
+        Flight flight = flightRepo.findFlightBySku(flightCartItemRequest.getSku());
         FlightCartItem flightCartItem = new FlightCartItem(null,flight);
         flightCartItem = flightCartItemRepo.save(flightCartItem);
         flightsBook.getFlightCartItems().add(flightCartItem);
         flightsBookRepo.save(flightsBook);
-            return generateFlightBook(flightsBook);
+        return generateFlightBook(flightsBook);
     }
-
     private FlightsBookResponse generateFlightBook(FlightsBook flightsBook) {
         List<FlightCartItem> flights = flightsBook.getFlightCartItems();
         List<BookRow> bookRowList = new ArrayList<>();
@@ -93,11 +83,12 @@ public class FlightsBookService {
     }
 
 
-    private Optional<FlightCartItem> getExistingFlight(FlightsBook flightsBook, FlightsBookItemRequest flightsBookItemRequest) {
+    private Optional<FlightCartItem> getExistingFlight(FlightsBook flightsBook, FlightsBookItemRequest flightCartItems) {
         for(FlightCartItem flightCartItem: flightsBook.getFlightCartItems()) {
-            if (flightCartItem.getFlight().getSku().equals(flightsBookItemRequest.getSku())) {
+            if (flightCartItem.getFlight().getSku().equals(flightCartItems.getSku())) {
                 return Optional.of(flightCartItem);
             }
         } return Optional.empty();
     }
-}
+    }
+
