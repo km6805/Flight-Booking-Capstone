@@ -90,5 +90,27 @@ public class FlightsBookService {
             }
         } return Optional.empty();
     }
+
+    public FlightsBookResponse deleteFlightFromBook(String bookId, String sku) {
+        FlightsBook flightsBook = getFlightsBookFromDatabase(bookId);
+        Flight flight = flightRepo.findFlightBySku(sku);
+        FlightCartItem flightCartItem = new FlightCartItem(null,flight);
+        flightsBook.setFlightCartItems(removeFlightItemFromList(flightsBook,flight));
+        flightCartItemRepo.delete(flightCartItem);
+        flightsBookRepo.save(flightsBook);
+        return generateFlightBook(flightsBook);
     }
+
+    private List<FlightCartItem> removeFlightItemFromList(FlightsBook flightsBook, Flight flight) {
+        List <FlightCartItem> newFlightCartItems = new ArrayList<>();
+        for (int i = 0; i < flightsBook.getFlightCartItems().size(); i++) {
+            if (flightsBook.getFlightCartItems().get(i).getFlight().getSku().equals(flight.getSku())) {
+
+            }else{
+                newFlightCartItems.add(flightsBook.getFlightCartItems().get(i));
+            }
+        } return newFlightCartItems;
+    }
+
+}
 

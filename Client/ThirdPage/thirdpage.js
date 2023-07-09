@@ -21,6 +21,13 @@ const displayFavorites = () => {
     favoriteFlightTable.innerHTML += makeFlights(row);
   });
 };
+const removeFromFavorites =(e,sku) => {
+  
+  const bookId = localStorage.getItem('flightBookId');
+  axios.delete(`${baseURL}/api/flight-book/${bookId}/${sku}`)
+  .then(({ data }) =>{})
+  location.reload()
+}
 
 const makeFlights = (flight) => {
   return `
@@ -32,6 +39,7 @@ const makeFlights = (flight) => {
     <td align="center">${flight.date}</td>
     <td align="center">${flight.time}</td>
     <td align="center">$${flight.price}</td>
+    <td align="center"><button onclick="removeFromFavorites(this, ${flight.sku})">Remove</button></td>
 </tr>`;
 };
 

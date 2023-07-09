@@ -24,4 +24,10 @@ public class FlightsBookController {
         FlightsBookResponse flightsBookResponse = flightsBookService.addFlightToBook(id,flightsBookItemRequest);
         return new ResponseEntity<>(flightsBookResponse,HttpStatus.OK);
     }
+
+    @DeleteMapping("/flight-book/{bookId}/{sku}")
+    public ResponseEntity<FlightsBookResponse> deleteFromBook(@PathVariable String bookId, @PathVariable String sku) {
+        FlightsBookResponse flightsBookResponse = flightsBookService.deleteFlightFromBook(bookId,sku);
+        return new ResponseEntity<>(flightsBookResponse,HttpStatus.OK);
+    }
 }
