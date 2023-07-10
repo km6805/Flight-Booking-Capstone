@@ -14,7 +14,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Flight {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String sku;
     private String airline;
     private String departure;

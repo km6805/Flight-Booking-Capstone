@@ -3,6 +3,7 @@ package com.flight.booking.rest;
 import com.flight.booking.models.Flight;
 import com.flight.booking.repo.FlightRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,8 +21,9 @@ public class FlightController {
         return flightRepo.findAll();
     }
 
-    /*@PostMapping("/flight/book/{airline}/{departure}/{arrival}/{date}/{time}/{price}")
-    public ResponseEntity addFlight() {
-
-    }*/
+    @PostMapping("/flight/add")
+    public ResponseEntity<Flight> addFlight(@RequestBody Flight flight){
+        flightRepo.save(flight);
+        return new ResponseEntity<>(flight, HttpStatus.OK);
+    }
 }

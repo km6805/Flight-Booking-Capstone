@@ -21,13 +21,13 @@ const displayFavorites = () => {
     favoriteFlightTable.innerHTML += makeFlights(row);
   });
 };
-const removeFromFavorites =(e,sku) => {
-  
-  const bookId = localStorage.getItem('flightBookId');
-  axios.delete(`${baseURL}/api/flight-book/${bookId}/${sku}`)
-  .then(({ data }) =>{})
-  location.reload()
-}
+const removeFromFavorites = (e, sku) => {
+  const bookId = localStorage.getItem("flightBookId");
+  axios
+    .delete(`${baseURL}/api/flight-book/${bookId}/${sku}`)
+    .then(({ data }) => {});
+  location.reload();
+};
 
 const makeFlights = (flight) => {
   return `

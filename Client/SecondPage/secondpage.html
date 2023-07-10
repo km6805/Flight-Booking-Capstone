@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add Flight</title>
-  <link rel="stylesheet" type="text/css" href="secondpage.css" />
-</head>
-<body>
-  <header class="header">
-    <h1>Add Flights</h1>
-  </header>
-  <label for="Airline">Airline:</label>
-<input type="text" id="Airline" name="Airline">
-<label for="Departure">Departure:</label>
-<input type="text" id="Departure" name="Departure">
-<label for="Arrival">Arrival:</label>
-<input type="text" id="Arrival" name="Arrival">
-<label for="Date">Date:</label>
-<input type="text" id="Date" name="Date">
-<label for="Time">Time:</label>
-<input type="text" id="Time" name="Time">
-<label for="Price">Price:</label>
-<input type="text" id="Price" name="Price">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Flight</title>
+    <link rel="stylesheet" type="text/css" href="secondpage.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1>Add Flights</h1>
+      <button onclick="location.href='/FrontPage/frontpage.html'">Flight List</button>
+      <button onclick="location.href='/ThirdPage/thirdpage.html'">Favorites</button>
+    </header>
+    <input type="text" id="flightnum" placeholder="Flight#" />
+    <input type="text" id="airline" placeholder="Airline" />
+    <input type="text" id="departure" placeholder="Departure" />
+    <input type="text" id="arrival" placeholder="Arrival" />
+    <input type="text" id="date" placeholder="Date" />
+    <input type="text" id="time" placeholder="Time" />
+    <input type="text" id="price" placeholder="Price" />
+    <br />
+    <form><button type="submit">Submit</button></form>
 
-  
-</body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script src="secondpage.js"></script>
+  </body>
 </html>
