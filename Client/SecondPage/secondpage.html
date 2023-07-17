@@ -8,10 +8,11 @@
   </head>
   <body>
     <header class="header">
-      <h1>Add Flights</h1>
+      <h1>Added Flights</h1>
       <button onclick="location.href='/FrontPage/frontpage.html'">Flight List</button>
       <button onclick="location.href='/ThirdPage/thirdpage.html'">Favorites</button>
     </header>
+    <div class="input">
     <input type="text" id="flightnum" placeholder="Flight#" />
     <input type="text" id="airline" placeholder="Airline" />
     <input type="text" id="departure" placeholder="Departure" />
@@ -19,11 +20,14 @@
     <input type="text" id="date" placeholder="Date" />
     <input type="text" id="time" placeholder="Time" />
     <input type="text" id="price" placeholder="Price" />
-    <br />
-    <form><button type="submit">Submit</button></form>
+  
+  </div>
+    
+    <div class="button"><form><button type="submit">Submit</button></form></div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script src="secondpage.js"></script>
+    
   </body>
 </html>

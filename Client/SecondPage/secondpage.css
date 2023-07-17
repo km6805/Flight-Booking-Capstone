@@ -1,19 +1,21 @@
-body {
-  /*background-image: url('https://th.bing.com/th?id=OIP.fTgfWlSAHE-pqL0hSnI_WAHaEK&w=333&h=187&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2');*/
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-}
+
 .header {
   text-align: center;
-  color: blue;
-  background-color: rgb(54, 222, 237);
+  color: rgb(0, 0, 255);
+  background-color: rgb(54, 185, 237);
   padding: 5px;
   font-size: larger;
-  table-layout: auto;
-    border-spacing: 0;
-    border-collapse: collapse;
-    width: 1000px;
-    margin: 40px auto;
-}
 
+}
+body {
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),  url('https://th.bing.com/th/id/OIP.rRLO60mNnOZjKGIMp0vXnQHaEK?w=277&h=180&c=7&r=0&o=5&dpr=1.9&pid=1.7');
+
+  background-size: cover;
+  padding: 5px;
+}
+.input {
+  padding: 25px;
+}
+.button {
+  font-size: 2px;
+}
